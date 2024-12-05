@@ -17,7 +17,7 @@ public class Job {
     @ConfigProperty(name = "rpi.read-command")
     String[] command;
 
-    @Scheduled(every = "${rpi.read-interval}")
+    @Scheduled(every = "${rpi.read-interval}", delayed = "2s")
     void readValue() {
         ProcessBuilder builder = new ProcessBuilder(command);
         builder.redirectErrorStream(true);
